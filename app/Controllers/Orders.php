@@ -18,8 +18,11 @@ class Orders extends ResourceController {
         if ($this->request->getVar('id')) {
             $where['id'] = $this->request->getVar('id');
         }
-        if ($this->request->getVar('user_id')) {
-            $where['order_user_id'] = $this->request->getVar('user_id');
+        if ($this->request->getVar('created_by')) {
+            $where['created_by'] = $this->request->getVar('created_by');
+        }
+        if ($this->request->getVar('order_status')) {
+            $where['order_status'] = $this->request->getVar('order_status');
         }
         
         $order = new $this->modelName();
